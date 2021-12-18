@@ -11,6 +11,7 @@ libncurses5-dev
 To install, type the following commands from the source dir:
 
 make
+
 sudo make install
 
 
