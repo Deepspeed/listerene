@@ -1,0 +1,33 @@
+Pre-0.1  Started as a simple one-function script with filepaths and charsets hardcoded, quickly grew to allow user input and became a multi-function program.  Eventually decided it would be nice to get fancy with it and release it for the public.
+
+0.1 - Became a solid standard terminal app, charset compare kinda borked, but it all works, though fairly simple.  Using plain strcmp() makes things slow with huge password collections.
+
+0.2, ported to ncurses, many new bugs and kinks, but works for basics
+
+0.3, 
+custom mode fixed
+ncurses setup fixed
+charset compare fixed
+added ctrl+c handling
+added resize handling.
+
+0.4 
+updated charset definitions, lengths
+added over 10% efficiency with a single line of code!
+renamed variables to meet half-decent standards
+forked into 2-d array version, amazingly buggy, not fast, scrapped it
+
+0.5
+Added strip feature
+Wrote proper help file
+Added help-file display feature
+battled with variable-screen-size word-wrap for days!
+vanquished a horde of new bugs
+switched to infinite-looping OOP-style function flow(borked)
+Added runtime clock feature
+added more efficiency to main loop by reducing if's
+
+tried using SQL and turning database into a linked list, didn't work well.
+
+---------------
+I wrote this app years ago and never published it.  I am publishing it now in hopes that it helps someone in the future.  If I have time and motivation, I hope to come back to it later and improve it.

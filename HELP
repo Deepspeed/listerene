@@ -1,0 +1,41 @@
+Listerene Help:
+
+Sort Mode:
+For sorting lists of names or passwords into a plaintext 'database' of filtered strings. Sort mode works with any plaintext file in a one-string-per-line format. Able to handle password strings up to 300 characters and file location strings up to 450 characters. Sort mode does not eliminate duplicates in a database file, only prevents adding more. Be sure to start with clean database file with no duplicates or, more preferrably, build one from scratch.
+
+There are three modes for sorting a file:
+
+1: WPA Sorting will allow any string between 8 and 68 characters and containing only punctuation, alphabetic, or numeric characters, as these are the valid characters in a WPA passphrase. Next, it skips duplicates by comparing each string to every string in the database file, only adding it to the end of the file if it is unique.
+
+2: SSH sorting will allow any string that is under 300 characters (including a blank line), any string matching the SSH charset, which includes all alphabetic, numeric, punctuation, and whitespace characters as well as some control characters. Will allow a single space or blank line. Any length password is valid in SSH/Unix, but I've limited it to 300. This should be more than enough except in extremely rare cases. I have no official list of valid characters for SSH passwords, but I'm sure I've covered nearly all of them in the code. It's totally possible to have '\a' alarms and '\v' vertical tabs in an SSH password, and I've included the ability to handle those, but there may be others I've missed.  Regardless, I'm sure it's exceedingly rare for people to actually use these sorts of characters in passwords, as they would almost surely have to be copy/pasted each time they were needed.
+
+3: Custom sorting allows you to define your own rules for sorting.
+
+3.1: Min/Max allowed string lengths come first. The minimum lengths can be from 0 to 300 characters and the maximum must be between 4 and 300 chars. If you need passwords of less than 4 chars, max, just generate/google them.
+
+3.2: Choosing the charset to compare to comes next. You can use the pre-defined WPA or SSH charsets if you like, or specify a custom set. If specifying a custom set, it is highly recommended to type the set in a text editor and double-check it before copy/pasting it into Listerene. The custom set can contain any characters you like and must be input as a continuous string, i.e. abcdefghijklmnopqrstuvwxyz1234567890. Entering this would mean Listerene would only accept a string if every character in the string were either a number or lower-case letter.
+
+----------------------------------------
+
+Strip Mode:
+for removing control characters and spaces from lists. Sort mode will allow passes which are too short at times if the lists are not properly stripped. Some lists also cause large percentages of false fails for charset incompatibilities when not properly stripped. Stripping makes a new file with the same name as the originsl, but with a '.ws' or '.ss' appended to it, depending on which type of strip was done. It is recommended to strip troublesome lists that have many fails. It is also helpful to strip a database file once it has been fully built with all available passwords and then re-sort it if the individual text files weren't all stripped before being sorted.
+
+There are two options for stripping a list:
+
+1: WPA stripping will strip away all forms of spaces and tabs as well as all control characters aside from the newline and null zero.
+
+2: SSH stripping will only remove the control characters, leaving spaces and tabs, etc, as they are valid in SSH passes. (In fact, SSH/Unix passwords can even have some weird control characters, but those can be stripped out with reasonable certainty that the passwords you're looking for won't contain these sorts of characters. If you want to allow control chars, don't strip the files. SSH sort mode can work with SSH-valid control characters if not stripped.)
+
+----------------------------------------
+
+General Hints:
+Press CTRL+C to quit, but expect a warning if you're in the middle of processing a file.
+
+Listerene isn't meant to be run as root, but it's mostly harmless. It is possible to write to system files as DB files if run as root. Error handling prevents making db files in root dir unless you run as root. Don't go making a db file out of your rc.local.
+
+Mis-typing an input file name gives an error, but won't hurt anything.  However, if you mis-type a db file name, Listerene will create a file with the typo'd name and filter into that. Not harmful, but type carefully.
+
+Running more than one instance of Listerene can lead to terminal derps on exit. This can also happen if a segfault causes a crash. This is a bug in the ncurses window system. It just happens. If the terminal goes weird, run Listerene again and choose quit to fix the screen.  
+
+
+

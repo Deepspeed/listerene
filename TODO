@@ -1,0 +1,41 @@
+plans:
+
+maybe add cli args for these:
+listerene -m [mode] -i [input filepath] -o [database filepath] [-h|--help] 
+[-v|--version]
+
+may need to add scrolling menu for extra choices
+
+make gui nicer
+
+add .cfg file to save/create custom charsets.
+
+update signal() call to sigaction()
+
+look into timer bug (timer derps when processing hundreds of strings/second)
+
+fix function flow on sort mode repeat(major bug)
+
+make organized sort and simple sort modes.(maybe)
+
+warn if run as root
+
+Fix speed problems for 1.0.
+
+Random ideas to speed things up:
+
+Use sqlite3
+
+Add multithreading
+
+Use hash tables
+
+
+BUGS:
+
+timer derps when sorting goes super-fast.
+infinite-loop program flow broken.
+Faster than ever, but still slow as bollocks in grand scheme of things.
+
+
+-------------------------------------------------------------------------------

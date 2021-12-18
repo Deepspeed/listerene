@@ -1,0 +1,26 @@
+.\" Manpage for listerene
+.\" Contact Hacker.Deepspeed@gmail.com with bugs/corrections.
+.\"Created with GNOME Manpages Editor
+
+.TH listerene 1 "MAR 1, 2018" "" "Listerene User's Manual"
+
+.SH NAME
+listerene \- program for managing and sorting password lists
+
+.SH SYNOPSIS
+.B listerene
+.br
+
+.SH DESCRIPTION
+Listerene is a simple ncurses program for managing and sorting large collections of password or username lists used in password cracking.  Modes for sorting and stripping plaintext files.
+.LP
+Sort mode builds a plaintext 'database' of filtered usernames or passwords from an input file based on the supplied presets/custom rules.  Sorting presets are for WPA and SSH passwords, but custom modes allow user-defined string min/max lengths up to 300 chars as well as user-defined character sets.
+.LP
+Strip presets are also for WPA and SSH.  WPA stripping will remove all forms of spaces and control characters from the given list, while SSH stripping will leave spaces and only strip out control characters that may be causing problems in sorting.  It is not a bad idea to strip all lists before WPA sorting, but if working with SSH or Custom presets, it is recommended to strip only lists that have many unexpected charset fails during sorting.
+.LP
+For more info, see the Listerene help file located at /usr/share/doc/listerene/HELP
+
+
+.SH HISTORY
+2018 - Originally written by Doug Yanez <Hacker.Deepspeed@gmail.com>
+
