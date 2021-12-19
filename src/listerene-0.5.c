@@ -196,7 +196,8 @@ void get_nekkid()
 		boolStrip=1;
 	else if (intPick == 3){//show help and return
 		help_meh();
-		get_nekkid();}//failing to recurse in ncurses ends in cursing!
+		get_nekkid();//failing to recurse in ncurses ends in cursing!
+	}
 	else if (intPick == 4){//exit
 		endwin();
 		exit(0);
@@ -523,7 +524,7 @@ YZ1234567890~!@#$%^&*()_+-=|\\}]{\v\"\?[\"\t\a\b\':`;/ >.<,";
 void gimme_files()
 {
 	 /*get sort mode file paths, open files. More sanitizing.*/
-	//nocbreak();//broke custom mode for days with this line!
+	//nocbreak(); //broke custom mode for days with this line!
 	echo();
 	printw("Input list location? (one at a time pl0x)\n");
 	printw("Try CTRL+SHIFT+V, '/path/to/file.txt', or 'file.txt'.\n");
